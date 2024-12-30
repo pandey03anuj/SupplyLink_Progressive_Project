@@ -2,10 +2,13 @@ package com.wecp.progressive.service.impl;
 
 import java.util.List;
 
+import com.wecp.progressive.dao.ProductDAO;
 import com.wecp.progressive.entity.Product;
 import com.wecp.progressive.service.ProductService;
 
 public class ProductServiceImplJdbc implements ProductService {
+
+    private ProductDAO productDAO;
 
     
     public List<Product> getAllProducts(){

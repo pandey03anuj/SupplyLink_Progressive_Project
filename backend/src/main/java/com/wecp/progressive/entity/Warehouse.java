@@ -2,44 +2,44 @@ package com.wecp.progressive.entity;
 
 public class Warehouse implements Comparable<Warehouse>{
 
-    private int warehouse_id;
-    private int supplier_id;
-    private String warehouse_name;
+    private int warehouseId;
+    private int supplierId;
+    private String warehouseName;
     private String location;
     private int capacity;
 
     public Warehouse(){}
 
-    public Warehouse(int warehouse_id, int supplier_id, String warehouse_name, String location, int capacity) {
-        this.warehouse_id = warehouse_id;
-        this.supplier_id = supplier_id;
-        this.warehouse_name = warehouse_name;
+    public Warehouse(int warehouseId, int supplierId, String warehouseName, String location, int capacity) {
+        this.warehouseId = warehouseId;
+        this.supplierId = supplierId;
+        this.warehouseName = warehouseName;
         this.location = location;
         this.capacity = capacity;
     }
 
-    public int getWarehosue_id() {
-        return warehouse_id;
+    public int getWarehouseId() {
+        return warehouseId;
     }
 
-    public void setWarehosue_id(int warehouse_id) {
-        this.warehouse_id = warehouse_id;
+    public void setWarehouseId(int warehouseId) {
+        this.warehouseId = warehouseId;
     }
 
-    public int getSupplier_id() {
-        return supplier_id;
+    public int getSupplierId() {
+        return supplierId;
     }
 
-    public void setSupplier_id(int supplier_id) {
-        this.supplier_id = supplier_id;
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
     }
 
-    public String getWarehouse_name() {
-        return warehouse_name;
+    public String getWarehouseName() {
+        return warehouseName;
     }
 
-    public void setWarehouse_name(String warehouse_name) {
-        this.warehouse_name = warehouse_name;
+    public void setWarehouseName(String warehouseName) {
+        this.warehouseName = warehouseName;
     }
 
     public String getLocation() {
@@ -59,10 +59,9 @@ public class Warehouse implements Comparable<Warehouse>{
     }
 
     public int compareTo(Warehouse w){
-        return Double.compare(w.getCapacity(),this.getCapacity());
+        return Integer.compare(this.getCapacity(), w.getCapacity());
     }
 
-    
 
     
 

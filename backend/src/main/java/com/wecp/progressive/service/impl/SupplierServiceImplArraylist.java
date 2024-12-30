@@ -29,7 +29,7 @@ public class SupplierServiceImplArraylist implements SupplierService{
         List<Supplier> sortedSupplier=supplierList;
         Collections.sort(sortedSupplier,new Comparator<Supplier>() {
             public int compare(Supplier s1,Supplier s2){
-                return s1.getSupplier_name().compareTo(s2.getSupplier_name());
+                return s1.getSupplierName().compareTo(s2.getSupplierName());
             }
             
         });

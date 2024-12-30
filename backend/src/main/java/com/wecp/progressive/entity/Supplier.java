@@ -4,55 +4,59 @@ import java.util.Comparator;
 
 public class Supplier implements Comparable<Supplier>{
 
-    private int supplier_id;
-    private String supplier_name;
-    private String contact_email;
-    private String contact_phone;
+    private int supplierId;
+    private String supplierName;
+    private String email;
+    private String phone;
     private String address;
+    private String username;
+    private String password;
     private String role;
 
     public Supplier(){}
 
-    public Supplier(int supplier_id, String supplier_name, String contact_email, String contact_phone, String address,
-            String role) {
-        this.supplier_id = supplier_id;
-        this.supplier_name = supplier_name;
-        this.contact_email = contact_email;
-        this.contact_phone = contact_phone;
+    public Supplier(int supplierId, String supplierName, String email, String phone, String address, String username,
+            String password, String role) {
+        this.supplierId = supplierId;
+        this.supplierName = supplierName;
+        this.email = email;
+        this.phone = phone;
         this.address = address;
+        this.username = username;
+        this.password = password;
         this.role = role;
     }
 
-    public int getSupplier_id() {
-        return supplier_id;
+    public int getSupplierId() {
+        return supplierId;
     }
 
-    public void setSupplier_id(int supplier_id) {
-        this.supplier_id = supplier_id;
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
     }
 
-    public String getSupplier_name() {
-        return supplier_name;
+    public String getSupplierName() {
+        return supplierName;
     }
 
-    public void setSupplier_name(String supplier_name) {
-        this.supplier_name = supplier_name;
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
     }
 
-    public String getContact_email() {
-        return contact_email;
+    public String getEmail() {
+        return email;
     }
 
-    public void setContact_email(String contact_email) {
-        this.contact_email = contact_email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getContact_phone() {
-        return contact_phone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setContact_phone(String contact_phone) {
-        this.contact_phone = contact_phone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getAddress() {
@@ -61,6 +65,22 @@ public class Supplier implements Comparable<Supplier>{
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getRole() {
@@ -72,9 +92,7 @@ public class Supplier implements Comparable<Supplier>{
     }
 
     public int compareTo(Supplier s){
-        return this.getSupplier_name().compareTo(s.getSupplier_name());
-
-
+        return s.getSupplierName().compareTo(this.getSupplierName());
     }
 
 }

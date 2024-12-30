@@ -10,27 +10,28 @@ import com.wecp.progressive.service.WarehouseService;
 
 public class WarehouseServiceImplArraylist implements WarehouseService {
 
-    ArrayList<Warehouse> warehouses=new ArrayList<>();
+    private ArrayList<Warehouse> warehouseList=new ArrayList<>();
 
     public List<Warehouse> getAllWarehouses(){
-        return null;
+        return warehouseList;
     }
 
     public int addWarehouse(Warehouse warehouse){
-        // return warehouses.add(warehouse) ? 1: 0 ;
-        return 1;
+        warehouseList.add(warehouse);
+        return warehouseList.size();
+
     }
 
     public List<Warehouse> getWarehousesSortedByCapacity(){
 
-        return null;
-        // Collections.sort(warehouses,new Comparator<Warehouse>() {
-        //     public int compare(Warehouse w1,Warehouse w2){
-        //         return Integer.compare(w1.getCapacity(), w2.getCapacity());
-        //     }
-        // });
+        
+        Collections.sort(warehouseList,new Comparator<Warehouse>() {
+            public int compare(Warehouse w1,Warehouse w2){
+                return Integer.compare(w1.getCapacity(), w2.getCapacity());
+            }
+        });
 
-        // return  warehouses;
+        return  warehouseList;
     }
    
     

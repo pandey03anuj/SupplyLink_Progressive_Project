@@ -7,6 +7,8 @@ import com.wecp.progressive.service.WarehouseService;
 
 public class WarehouseServiceImplJdbc implements WarehouseService {
 
+    // private WarehouseDao warehouseDAO;
+
     public List<Warehouse> getAllWarehouses(){
         return null;
     }
