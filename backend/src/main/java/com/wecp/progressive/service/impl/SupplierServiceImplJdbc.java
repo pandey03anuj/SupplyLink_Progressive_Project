@@ -9,7 +9,7 @@ import com.wecp.progressive.service.SupplierService;
 public class SupplierServiceImplJdbc implements SupplierService {
 
     private SupplierDAO supplierDAO;
-
+    
     public SupplierServiceImplJdbc(SupplierDAO supplierDAO){
         this.supplierDAO=supplierDAO;
     }

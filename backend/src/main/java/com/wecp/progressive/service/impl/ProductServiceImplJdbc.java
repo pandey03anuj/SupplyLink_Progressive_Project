@@ -9,6 +9,9 @@ import com.wecp.progressive.service.ProductService;
 public class ProductServiceImplJdbc implements ProductService {
 
     private ProductDAO productDAO;
+    public ProductServiceImplJdbc(ProductDAO productDAO){
+        this.productDAO=productDAO;
+    }
 
     
     public List<Product> getAllProducts(){

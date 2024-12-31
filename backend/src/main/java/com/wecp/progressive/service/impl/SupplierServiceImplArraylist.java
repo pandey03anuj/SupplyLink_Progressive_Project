@@ -11,7 +11,11 @@ import com.wecp.progressive.service.SupplierService;
 
 public class SupplierServiceImplArraylist implements SupplierService{
 
-    private List<Supplier> supplierList=new ArrayList<>();
+    private List<Supplier> supplierList;
+
+    public SupplierServiceImplArraylist(){
+        supplierList=new ArrayList<>();
+    }
 
     public List<Supplier> getAllSuppliers(){
         return supplierList;

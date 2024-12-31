@@ -10,7 +10,11 @@ import com.wecp.progressive.service.WarehouseService;
 
 public class WarehouseServiceImplArraylist implements WarehouseService {
 
-    private ArrayList<Warehouse> warehouseList=new ArrayList<>();
+    private List<Warehouse> warehouseList;
+
+    public WarehouseServiceImplArraylist(){
+        warehouseList=new ArrayList<>();
+    }
 
     public List<Warehouse> getAllWarehouses(){
         return warehouseList;
