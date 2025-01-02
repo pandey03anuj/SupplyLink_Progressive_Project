@@ -2,8 +2,16 @@ package com.wecp.progressive.entity;
 
 import java.util.Comparator;
 
-public class Supplier implements Comparable<Supplier>{
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Supplier  implements Comparable<Supplier>{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int supplierId;
     private String supplierName;
     private String email;
@@ -92,7 +100,7 @@ public class Supplier implements Comparable<Supplier>{
     }
 
     public int compareTo(Supplier s){
-        return s.getSupplierName().compareTo(this.getSupplierName());
+        return this.getSupplierName().compareTo(s.getSupplierName());
     }
 
 }

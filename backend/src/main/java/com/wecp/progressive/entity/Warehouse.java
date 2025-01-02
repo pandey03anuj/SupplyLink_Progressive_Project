@@ -1,7 +1,15 @@
 package com.wecp.progressive.entity;
 
-public class Warehouse implements Comparable<Warehouse>{
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Warehouse implements Comparable<Warehouse> {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int warehouseId;
     private int supplierId;
     private String warehouseName;
@@ -59,10 +67,7 @@ public class Warehouse implements Comparable<Warehouse>{
     }
 
     public int compareTo(Warehouse w){
-        return Integer.compare(this.getCapacity(), w.getCapacity());
+        return w.getCapacity() - this.getCapacity();
     }
-
-
-    
 
 }

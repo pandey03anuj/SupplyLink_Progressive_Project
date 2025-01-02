@@ -1,43 +1,51 @@
 package com.wecp.progressive.service.impl;
 
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import com.wecp.progressive.dao.WarehouseDAO;
+import com.wecp.progressive.dao.WarehouseDAOImpl;
 import com.wecp.progressive.entity.Warehouse;
 import com.wecp.progressive.service.WarehouseService;
 
+@Service
 public class WarehouseServiceImplArraylist implements WarehouseService {
 
-    private List<Warehouse> warehouseList;
+    private static List<Warehouse> warehouseList;
 
-    public WarehouseServiceImplArraylist(){
-        warehouseList=new ArrayList<>();
+    private WarehouseDAO warehouseDAO;
+    public WarehouseServiceImplArraylist (WarehouseDAOImpl warehouseDAO)  {
+        this.warehouseDAO = warehouseDAO;
+    }
+ 
+    public WarehouseServiceImplArraylist() {
+        warehouseList = new ArrayList<>();
     }
 
-    public List<Warehouse> getAllWarehouses(){
+    @Override
+    public List<Warehouse> getAllWarehouses() {
         return warehouseList;
     }
 
-    public int addWarehouse(Warehouse warehouse){
+    @Override
+    public int addWarehouse(Warehouse warehouse) {
         warehouseList.add(warehouse);
         return warehouseList.size();
-
     }
 
-    public List<Warehouse> getWarehousesSortedByCapacity(){
-
-        
-        Collections.sort(warehouseList,new Comparator<Warehouse>() {
-            public int compare(Warehouse w1,Warehouse w2){
-                return Integer.compare(w1.getCapacity(), w2.getCapacity());
-            }
-        });
-
-        return  warehouseList;
+    @Override
+    public List<Warehouse> getWarehousesSortedByCapacity() {
+        List<Warehouse> sortedWarehouses = warehouseList;
+        sortedWarehouses.sort(Comparator.comparing(Warehouse::getCapacity));
+        return sortedWarehouses;
     }
-   
-    
 
+    @Override
+    public void emptyArrayList() {
+        warehouseList = new ArrayList<>();
+    }
 }
