@@ -9,13 +9,12 @@ import javax.persistence.Id;
 public class Product  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int productId;
-    private int warehouseId;
-    private String productName;
-    private String productDescription;
-    private int quantity;
-    private long price;
-    
+    Integer productId;
+    Integer warehouseId;
+    String productName;
+    String productDescription;
+    int quantity;
+    long price;
     
     public Product(int productId, int warehouseId, String productName, String productDescription, int quantity,
             long price) {

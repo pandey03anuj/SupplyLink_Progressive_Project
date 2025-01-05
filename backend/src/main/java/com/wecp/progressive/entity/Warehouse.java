@@ -5,21 +5,32 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 @Entity
 public class Warehouse implements Comparable<Warehouse> {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int warehouseId;
-    private int supplierId;
+    private Integer warehouseId;
+    
+    private Integer supplierId;
     private String warehouseName;
     private String location;
     private int capacity;
 
-    public Warehouse(){}
+    public Warehouse() {}
+    
+    
 
     public Warehouse(int warehouseId, int supplierId, String warehouseName, String location, int capacity) {
         this.warehouseId = warehouseId;
+        this.supplierId = supplierId;
+        this.warehouseName = warehouseName;
+        this.location = location;
+        this.capacity = capacity;
+    }
+
+    public Warehouse(int supplierId, String warehouseName, String location, int capacity) {
         this.supplierId = supplierId;
         this.warehouseName = warehouseName;
         this.location = location;
@@ -38,8 +49,8 @@ public class Warehouse implements Comparable<Warehouse> {
         return supplierId;
     }
 
-    public void setSupplierId(int supplierId) {
-        this.supplierId = supplierId;
+    public void setSupplierId(int supplier) {
+        this.supplierId = supplier;
     }
 
     public String getWarehouseName() {
@@ -66,8 +77,8 @@ public class Warehouse implements Comparable<Warehouse> {
         this.capacity = capacity;
     }
 
-    public int compareTo(Warehouse w){
-        return w.getCapacity() - this.getCapacity();
+    @Override
+    public int compareTo(Warehouse otherWarehouse) {
+        return otherWarehouse.getCapacity() - this.getCapacity();
     }
-
 }
