@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.wecp.progressive.dao.ProductDAO;
 import com.wecp.progressive.entity.Product;
+import com.wecp.progressive.exception.InsufficientCapacityException;
 import com.wecp.progressive.repository.ProductRepository;
 import com.wecp.progressive.service.ProductService;
 
@@ -32,6 +33,10 @@ public class ProductServiceImplJpa implements ProductService  {
 
     @Override
     public int addProduct(Product product) {
+        if(product.getWarehouse().getCapacity()<1){
+            throw new InsufficientCapacityException("Not enough capacity");
+
+        }
         return productRepository.save(product).getProductId();
     }
 

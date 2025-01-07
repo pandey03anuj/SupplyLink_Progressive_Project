@@ -64,8 +64,12 @@ public class WarehouseServiceImplJpa implements WarehouseService {
     }
 
     @Override
-    public List<Warehouse> getWarehouseBySupplier(int supplierId) throws NoWarehouseFoundForSupplierException {
+    public List<Warehouse> getWarehouseBySupplier(int supplierId) throws NoWarehouseFoundForSupplierException {        
         List<Warehouse> warehouseList = warehouseRepository.findAllBySupplier_SupplierId(supplierId);
+        if (warehouseList.isEmpty()) {
+            throw new NoWarehouseFoundForSupplierException("Cannot find warehouse by this supplier id");
+        }
+
         return warehouseList;
     }
 }
