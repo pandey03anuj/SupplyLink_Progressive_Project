@@ -28,7 +28,7 @@ public class ProductDAOImpl implements ProductDAO {
         String slq = "INSERT INTO product (warehouse_id, product_name, product_description, quantity, price) VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = connection.prepareStatement(slq, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, product.getWarehouseId());
+            // ps.setInt(1, product.getWarehouseId());
             ps.setString(2, product.getProductName());
             ps.setString(3, product.getProductDescription());
             ps.setInt(4, product.getQuantity());
@@ -62,7 +62,7 @@ public class ProductDAOImpl implements ProductDAO {
                p.setProductId(rs.getInt("product_id"));
                p.setProductName(rs.getString("product_name"));
                p.setQuantity(rs.getInt("quantity"));
-               p.setWarehouseId(rs.getInt("warehouse_id"));
+            //    p.setWarehouseId(rs.getInt("warehouse_id"));
 
                return p;
             }
@@ -79,7 +79,7 @@ public class ProductDAOImpl implements ProductDAO {
         String sql = "UPDATE product SET  warehouse_id = ?, product_name = ?, product_description = ?, quantity = ?, price = ? WHERE product_id = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, product.getWarehouseId());
+            // ps.setInt(1, product.getWarehouseId());
             ps.setString(2, product.getProductName());
             ps.setString(3, product.getProductDescription());
             ps.setInt(4, product.getQuantity());
@@ -117,7 +117,7 @@ public class ProductDAOImpl implements ProductDAO {
                 p.setProductId(rs.getInt("product_id"));
                 p.setProductName(rs.getString("product_name"));
                 p.setQuantity(rs.getInt("quantity"));
-                p.setWarehouseId(rs.getInt("warehouse_id"));
+                // p.setWarehouseId(rs.getInt("warehouse_id"));
                 
                 ans.add(p);
             }

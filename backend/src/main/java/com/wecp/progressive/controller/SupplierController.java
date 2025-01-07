@@ -35,7 +35,8 @@ public class SupplierController {
     public ResponseEntity<List<Supplier>> getAllSuppliers() throws SQLException {
         try {
             return new ResponseEntity<>(supplierServiceImplJpa.getAllSuppliers(), HttpStatus.OK);
-        } catch (Exception e) {            
+        } catch (Exception e) {
+            // TODO: handle exception
             e.printStackTrace();
         }   
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -45,7 +46,8 @@ public class SupplierController {
     public ResponseEntity<Supplier> getSupplierById(@PathVariable int supplierId) throws SQLException {
         try {
             return new ResponseEntity<>(supplierServiceImplJpa.getSupplierById(supplierId), HttpStatus.OK);
-        } catch (Exception e) {            
+        } catch (Exception e) {
+            // TODO: handle exception
             e.printStackTrace();
         }
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -55,7 +57,8 @@ public class SupplierController {
     public ResponseEntity<Integer> addSupplier(@RequestBody Supplier supplier)  {
         try {
             return new ResponseEntity<>(supplierServiceImplJpa.addSupplier(supplier), HttpStatus.CREATED);
-        } catch (Exception e) {            
+        } catch (Exception e) {
+            // TODO: handle exception
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -72,7 +75,8 @@ public class SupplierController {
             supplier.setSupplierId(s.getSupplierId());
             supplierServiceImplJpa.updateSupplier(supplier);
             return new ResponseEntity<>( HttpStatus.OK);
-        } catch (Exception e) {            
+        } catch (Exception e) {
+            // TODO: handle exception
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -84,7 +88,8 @@ public class SupplierController {
         try {
             supplierServiceImplJpa.deleteSupplier(supplierId);
             return new ResponseEntity<>("Deleted Successfully", HttpStatus.OK);
-        } catch (Exception e) {            
+        } catch (Exception e) {
+            // TODO: handle exception
             e.printStackTrace();
         }
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
