@@ -60,9 +60,9 @@ public class SupplierServiceImplJpa implements SupplierService {
     @Override
     @Transactional
     public void deleteSupplier(int supplierId) throws SQLException {
-        supplierRepository.deleteBySupplierId(supplierId);
         productRepository.deleteBySupplierId(supplierId);
         warehouseRepository.deleteBySupplierId(supplierId);
+        supplierRepository.deleteBySupplierId(supplierId);
     }
 
     @Override

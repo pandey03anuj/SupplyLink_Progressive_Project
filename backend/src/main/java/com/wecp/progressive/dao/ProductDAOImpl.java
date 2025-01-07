@@ -18,7 +18,8 @@ public class ProductDAOImpl implements ProductDAO {
     static {
         try {
             connection = DatabaseConnectionManager.getConnection();
-        } catch (SQLException e) {            
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -41,7 +42,8 @@ public class ProductDAOImpl implements ProductDAO {
                 return product.getProductId();
             }
             return -1;
-        } catch (Exception e) {            
+        } catch (Exception e) {
+            // TODO: handle exception
             e.printStackTrace();
             return -1;
         }
@@ -67,7 +69,8 @@ public class ProductDAOImpl implements ProductDAO {
                return p;
             }
             return null;
-        } catch (Exception e) {            
+        } catch (Exception e) {
+            // TODO: handle exception
             e.printStackTrace();
             return null;
         }
@@ -87,7 +90,8 @@ public class ProductDAOImpl implements ProductDAO {
             ps.setInt(6, product.getProductId());
 
             ps.executeUpdate();
-        } catch (Exception e) {            
+        } catch (Exception e) {
+            // TODO: handle exception
             e.printStackTrace();
         }        
     }
@@ -99,7 +103,8 @@ public class ProductDAOImpl implements ProductDAO {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, productId);
             ps.executeUpdate();
-        } catch (Exception e) {            
+        } catch (Exception e) {
+            // TODO: handle exception
             e.printStackTrace();
         }
     }
@@ -132,7 +137,8 @@ public class ProductDAOImpl implements ProductDAO {
         try {
             if(connection != null)
                 connection.close();
-        } catch (Exception e) {            
+        } catch (Exception e) {
+            // TODO: handle exception
             e.printStackTrace();
         }
     }
