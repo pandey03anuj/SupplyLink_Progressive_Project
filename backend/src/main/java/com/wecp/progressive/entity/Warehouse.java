@@ -10,7 +10,7 @@ public class Warehouse implements Comparable<Warehouse> {
     private int warehouseId;
     
     @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "supplierId")
+    @JoinColumn(name = "supplier_id")
     private Supplier supplier;
     private String warehouseName;
     private String location;
@@ -68,7 +68,8 @@ public class Warehouse implements Comparable<Warehouse> {
     }
 
     @Override
-    public int compareTo(Warehouse otherWarehouse) {        
+    public int compareTo(Warehouse otherWarehouse) {
+        // Implement comparison logic based on warehouse capacity
         return Double.compare(otherWarehouse.getCapacity(), this.getCapacity());
     }
 }
