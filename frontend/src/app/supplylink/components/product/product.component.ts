@@ -1,4 +1,4 @@
 
-export class ProductComponent {
+export class ProductComponent {    
  
 }
