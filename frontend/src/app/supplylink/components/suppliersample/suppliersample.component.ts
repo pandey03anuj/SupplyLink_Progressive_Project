@@ -12,4 +12,5 @@ import { of } from 'rxjs';
 })
 export class SupplierSampleComponent {
   // Component logic goes here
+  supplier:Supplier=new Supplier(1,"Anuj","anuj123@gmail.com","1234567898","Navi-Mumbai","anuj123","anujpass123","IT_Head");
 }
