@@ -11,7 +11,7 @@ import { HttpClientModule } from "@angular/common/http";
     CommonModule,
     SupplyLinkRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule,    
   ],
   exports: [
     
