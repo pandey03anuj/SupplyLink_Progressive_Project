@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Observable, of } from "rxjs";
 
 @Component ({
     selector : 'app-warehouse',
@@ -7,34 +8,37 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
     styleUrls : ['./warehouse.component.scss']
 })
 
+export class WarehouseComponent {
 
-export class WarehouseComponent implements OnInit {
+  warehouseForm: FormGroup;
+  warehouseError$: Observable<string>;
+  warehouseSuccess$: Observable<string>;
 
-    warehouseForm:FormGroup;
-    isSubmitted:boolean=false;
+  constructor(private fb: FormBuilder) {
+    this.warehouseError$ = of('');
+    this.warehouseSuccess$ = of('');
+  }
 
-    constructor(private fb:FormBuilder){}
+  ngOnInit(): void {
+    this.warehouseForm = this.fb.group({
+      supplierId: ['', [Validators.required]],
+      warehouseName: ['', Validators.required],
+      location : ['', [Validators.required]],
+      capacity: [0, [Validators.required, Validators.min(0)]]
+    });
+  }
 
-    ngOnInit(): void {
-        this.warehouseForm=this.fb.group({
-            warehouseId:[null,[Validators.required]],
-            supplierId:[null,[Validators.required,Validators.min(1)]],
-            warehouseName:['',[Validators.required]],
-            location:['',[Validators.required]],
-            capacity:[null,[Validators.required,Validators.min(0)]],
-        });        
+  onSubmit(): void {
+    if (this.warehouseForm.valid) {
+      const newSupplier = this.warehouseForm.value;
+      console.log('New Supplier:', newSupplier);
+      // Handle form submission, e.g., call a service to save the supplier
+      this.warehouseSuccess$ = of('Supplier added successfully!');
+      this.warehouseError$ = of('');
+    } else {
+      this.warehouseError$ = of('Form is invalid. Please fix the errors and try again.');
+      this.warehouseSuccess$ = of('');
     }
-
-    onSubmit(){
-        throw new Error('Method not implemented');
-
-        // if(this.warehouseForm.valid){
-        //     this.isSubmitted=true;
-        // }
-        
-
-    }
-    
-
+  }
 
 }
