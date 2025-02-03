@@ -10,6 +10,4 @@ import { Warehouse } from '../../types/Warehouse';
 })
 export class WarehouseSampleComponent {
 
-  warehouse:Warehouse=new Warehouse(1,"23","xyz","Mahape",12);
-
 }
