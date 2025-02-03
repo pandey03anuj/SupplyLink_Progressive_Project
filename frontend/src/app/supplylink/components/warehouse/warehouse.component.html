@@ -1,7 +1,7 @@
 <div class="">
     <h2>Warehouse</h2>
     <div class="">
-        <form action="" [formGroup]="warehouseForm">
+        <form [formGroup]="warehouseForm" (ngSubmit)="onSubmit()">
               <!-- <div>
                 <label for="warehouseId">Warehouse ID</label>
                 <input id="warehouseId" formControlName="warehouseId" type="text" />
@@ -59,14 +59,13 @@
               </div>
             
               <button type="submit">Submit</button>
-            </form>
             
-            <div *ngIf="(warehouseError$ | async) as warehouseError" class="error">
+            <!-- <div *ngIf="(warehouseError$ | async) as warehouseError" class="error">
               {{ warehouseError }}
             </div>
             <div *ngIf="(warehouseSuccess$ | async) as warehouseSuccess" class="success">
               {{ warehouseSuccess }}
-            </div>
+            </div> -->
             
         </form>
     </div>
